@@ -51,37 +51,8 @@ def upload_image():
         from side_tasks import verify_extension
         verify_extension(file_name=file)
 
-        r'''upload_folder = app.config["UPLOAD_FOLDER"]
-        nome_arquivo = file.filename
-        print("nome_arquivo -->", nome_arquivo)
-        print("nome_arquivo type -->", type(nome_arquivo))
-        print("")
-
-        extensao_arquivo = os.path.splitext(nome_arquivo)[1]
-        print("extensao_arquivo --> ", extensao_arquivo)
-
-        new_file_base_name = str(uuid.uuid4())
-        print("new_file_base_name -->", new_file_base_name)
-        print("")
-
-        new_file_name = str(new_file_base_name + extensao_arquivo)
-        print("new_file_name --> ", new_file_name)
-        print("new_file_name type --> ", type(new_file_name))
-        print("")
-
-        file_path = os.path.join(upload_folder, new_file_name)
-
-        print("file_path index.py dentro da funcao depois de mudar -->", file_path)
-        print("file_path index.py type dentro da funcao depois de mudar -->", type(file_path))
-        print("")
-        file.save(file_path)
-
-        from image_converter import convert_to_pdf
-        print(convert_to_pdf(image_name=new_file_name))
-
-        if file_extension:
-            pass'''
         return send_from_directory("temp", "output.pdf", as_attachment=True)
+        #return render_template("send_back.html")
 
 
 if __name__ == "__main__":
