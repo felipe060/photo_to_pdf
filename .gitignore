@@ -1,0 +1,11 @@
+venv
+.idea/
+test.py
+.env
+config.py
+points.txt
+image_converter.py
+final_doc/
+uploads/
+__pycache__/
+

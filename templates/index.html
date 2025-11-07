@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+    <form method="post" action="{{ url_for('upload_image')}}" enctype="multipart/form-data" style="margin-top: 40px; margin-left: 40px;">
+
+        <label for="id_image"> Select your image</label>
+        <br>
+        <input type="file" name="name_image" id="id_image" accept="image/*" required>
+        <br>
+        <button type="submit" style="margin-top: 40px;"> Download pdf</button>
+
+    </form>
+
+    <br>
+    <p style="margin-left: 40px;">limit file size --> 50Mb</p>
+</body>
+</html>
