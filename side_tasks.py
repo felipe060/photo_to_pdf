@@ -54,7 +54,7 @@ def convert_to_pdf(**kwargs):
 
     image_name = kwargs["image_name"]
     print("side_tasks.py convert_to_pdf() image_name kwargs['image_name'] --> ", image_name)
-    image = f"tmp/{image_name}"
+    image = f"static/files/{image_name}"
 
     print("side_tasks.py convert_to_pdf() kwargs --> ", kwargs)
     print("")
@@ -63,9 +63,9 @@ def convert_to_pdf(**kwargs):
     #print("file path image_converter.py -->", file_path)
 
     foto_convertida = convert(image)
-    with open("tmp/output.pdf", "wb") as file:
+    with open("static/files/output.pdf", "wb") as file:
         file.write(foto_convertida)
 
-    ola = os.remove(f"tmp/{image_name}")
+    ola = os.remove(f"static/files/{image_name}")
     print("side_tasks.py convert_to_pdf() ola -->", ola)
     return "foto convertida"

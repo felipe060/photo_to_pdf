@@ -51,7 +51,7 @@ def upload_image():
         from side_tasks import verify_extension
         verify_extension(file_name=file)
 
-        return send_from_directory("tmp", "output.pdf", as_attachment=True)
+        return send_from_directory("static/files", "output.pdf", as_attachment=True)
         #return render_template("send_back.html")
 
 
