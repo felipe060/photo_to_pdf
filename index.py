@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, send_from_directory
 import os
 
 app = Flask(__name__)
-app.config.from_object("config.ProductionConfig")
+app.config.from_object("config.DevelopmentConfig")
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(app.config["OUTPUT_FOLDER"], exist_ok=True)
@@ -13,8 +13,8 @@ def index():
     return render_template("index.html")
 
 
-@app.errorhandler(413)          #verifica o tamanho do arquivo
-def request_too_large(error):   #se ele for maior doq o MAX_CONTENT_LENGTH, o resto do codigo nem vai ser executado
+@app.errorhandler(413)                              #verifica o tamanho do arquivo
+def request_too_large(error):                       #se ele for maior doq o MAX_CONTENT_LENGTH, o resto do codigo nem vai ser executado
     return ("file size exceeds maximum of 50Mb "
             "<br>"
             "arquivo maior doq o limite de 50Mb permitido")
@@ -81,7 +81,7 @@ def upload_image():
 
         if file_extension:
             pass'''
-        return send_from_directory("final_doc", "output.pdf", as_attachment=True)
+        return send_from_directory("temp", "output.pdf", as_attachment=True)
 
 
 if __name__ == "__main__":
